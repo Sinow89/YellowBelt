@@ -1,17 +1,22 @@
-﻿namespace MiniKata5;
+﻿namespace YellowBelt.MiniKata5;
 
-class Program
+internal abstract class Program
 {
 
-    public void Attack(int damage)
+    private static void Attack(int damage)
     {
-        Console.WriteLine(damage);
+        Console.WriteLine($"Player dealt {damage} damage!");
+    }
+    
+    private static void Heal(int healAmount)
+    {
+        Console.WriteLine($"Player healed {healAmount} health points!");
     }
     
     
     static void Main()
     {
-        Program program = new Program();
-        program.Attack(10);
+        Attack(15);
+        Heal(10);
     }
 }
