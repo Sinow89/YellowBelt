@@ -1,9 +1,23 @@
-﻿namespace Kata5;
+﻿
+namespace Kata5;
 
-class Program
+internal abstract class Program
 {
-    static void Main(string[] args)
+
+    private static void AttackEnemy(string enemyName, int damage)
     {
-        Console.WriteLine("Hello, World!");
+        Console.WriteLine($"Attacked {enemyName} and dealt {damage} damage!");
+    }
+    
+    private static void HealPlayer(string playerName, int healAmount)
+    {
+        Console.WriteLine($"Player {playerName} healed {healAmount} health points!");
+    }
+    
+    
+    static void Main()
+    {
+        AttackEnemy(enemyName:"Goblin",damage:20);
+        HealPlayer(playerName:"Arin", healAmount:15);
     }
 }

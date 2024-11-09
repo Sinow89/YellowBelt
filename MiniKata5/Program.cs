@@ -1,4 +1,4 @@
-﻿namespace YellowBelt.MiniKata5;
+﻿namespace MiniKata5;
 
 internal abstract class Program
 {
