@@ -26,13 +26,14 @@ class Program
         playerInventory.Add("Armor");
         playerInventory.Remove("Potion");
         
+        
         Console.WriteLine("\nUpdated Inventory:");
         foreach (var listPlayerInventory in playerInventory)
         {
             Console.WriteLine(listPlayerInventory);
         }
         
-        // var playerInventroyAmount = playerInventory.Count;
+        // var playerInventoryAmount = playerInventory.Count;
         
         Console.WriteLine($"Total Items in Inventory: {playerInventory.Count}");
         
