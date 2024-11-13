@@ -8,7 +8,7 @@ class Program
         
         var player = new Player("Arin", 100, 1);
         
-        var enemy = new Enemy();
+        var enemy = new Enemy("Goblin", 50, 10);
         
         Console.WriteLine("Player Info:");
         Console.WriteLine($"Name: {player.Name}");
@@ -24,24 +24,25 @@ class Program
     }
 }
 
-public class Player
+public class Player(string name, int health, int level)
 {
-    public string Name{ get; }
-    public int Health { get; }
-    public int Level{ get; }
-
-    public Player(string name, int health, int level)
-    {
-        Name = name;
-        Health = health;
-        Level = level;
-    }
-   
+    public string Name{ get; } = name;
+    public int Health { get; } = health;
+    public int Level{ get; } = level;
 }
 
 public class Enemy
 {
-    public string Type;
-    public int Health;
-    public int Damage;
+    
+    public string Type { get; }
+    public int Health { get; }
+    public int Damage { get; }
+
+    
+    public Enemy(string type, int health, int damage)
+    {
+        Type = type;
+        Health = health;
+        Damage = damage;
+    }
 }
