@@ -6,7 +6,7 @@ class Program
     {
         string[] enemies = {"Goblin", "Orc", "Troll"};
         var playerInventory = new List<string>();
-        playerInventory.Add("Sword","Shield");
+        playerInventory.Add("Sword");
         playerInventory.Add("Shield");
         playerInventory.Add("Potion");
         
