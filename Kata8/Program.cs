@@ -18,10 +18,11 @@ class Player
 
     public void LevelUp()
     {
-        
-        if(_experience >= 100)
-        ++_level;
-        _experience = 0;
+        while (Experience >= 100)
+        {
+            Level++;
+            Experience -= 100;
+        }
     }
     
     private int _health = 100;
