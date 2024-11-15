@@ -12,6 +12,12 @@ class Program
 class Player
 {
 
+    public void Attack()
+    {
+        
+    }
+    
+    
     private string _playerName;
     
     public string Name
@@ -57,7 +63,10 @@ class Player
 
 class Enemy
 {
-    
+    public void TakeDamage(int damage)
+    {
+        
+    }
     
     private string _enemyName;
     private int _enemyHealth;
