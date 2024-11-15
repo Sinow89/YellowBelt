@@ -11,7 +11,13 @@ class Program
 
 class Player
 {
+    
+    
+    
+    
     private int _health = 100;
+    public int _level = 1;
+    public int _experience = 50;
 
     public int Health
     {
@@ -20,9 +26,7 @@ class Player
             return _health;
         }
     }
-
-    public int _level = 1;
-
+    
     public int Level
     {
         get
@@ -34,10 +38,7 @@ class Player
             _level = value;
         }
     }
-
-
-    public int _experience = 50;
-
+    
     public int Experience
     {
         get
@@ -49,7 +50,5 @@ class Player
             _experience = value;
         }
     }
-
-
-
+    
 }
