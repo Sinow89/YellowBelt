@@ -12,45 +12,45 @@ class Program
 class Player
 {
 
-    private string _name;
+    private string _playerName;
     
     public string Name
     {
         get
         {
-            return _name;
+            return _playerName;
         }
         set
         {
-            _name = value;
+            _playerName = value;
         }
     }
     
-    private int _health;
+    private int _playerHealth;
 
-    public int Health
+    public int PlayerHealth
     {
         get
         {
-            return _health;
+            return _playerHealth;
         }
         set
         {
-            _health = value;
+            _playerHealth = value;
         }
     }
 
-    private int _level;
+    private int _playerLevel;
 
-    public int Level
+    public int PlayerLevel
     {
         get
         {
-            return _level;
+            return _playerLevel;
         }
         set
         {
-            _level = value;
+            _playerLevel = value;
         }
     }
 }
@@ -65,11 +65,11 @@ class Enemy
     {
         get
         {
-            return _enemyName
+            return _enemyName;
         }
         set
         {
-            _enemyName = NameEnemy
+            _enemyName = NameEnemy;
         }
     }
     
