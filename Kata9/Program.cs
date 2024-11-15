@@ -60,8 +60,11 @@ class Enemy
     
     
     private string _enemyName;
+    private int _enemyHealth;
+    private int _enemyDamage;
 
-    public string NameEnemy
+    
+    public string EnemyName
     {
         get
         {
@@ -69,13 +72,97 @@ class Enemy
         }
         set
         {
-            _enemyName = NameEnemy;
+            _enemyName = value;
         }
     }
+
+    public int EnemyHealth
+    {
+        get
+        {
+            return _enemyHealth;
+        }
+        set
+        {
+            _enemyHealth = value;
+        }
+    }
+
+    public int EnemyDamage
+    {
+
+        get
+        {
+            return _enemyDamage;
+        }
+        set
+        {
+            _enemyDamage = value;
+        }
+            
+    }
+    
+    
     
 }
 
 class NPC
 {
+    private string _npcName;
+    private string _npcDialogue;
+
+    public string NpcName
+    {
+        get
+        {
+            return _npcName;
+        }
+        set
+        {
+            _npcName = value;
+        }
+    }
+
+    public string NpcDialogue
+    {
+        get
+        {
+            return _npcDialogue;
+        }
+        set
+        {
+            _npcDialogue = value;
+        }
+    }
     
+}
+
+class Merchant
+{
+    private string _merchantName;
+    private string _merchantInventory;
+
+    public string MerchantName
+    {
+        get
+        {
+            return _merchantName;
+        }
+        set
+        {
+            _merchantName = value;
+        }
+    }
+
+    public string MerchantInventory
+    {
+        get
+        {
+            return _merchantInventory;
+        }
+        set
+        {
+            _merchantInventory = value;
+        }
+    }
 }
