@@ -5,15 +5,22 @@ class Program
     static void Main()
     {
         
+        var player = new Player();
+        player.LevelUp();
+        
     }
 }
 
 
 class Player
 {
-    
-    
-    
+
+
+    public void LevelUp()
+    {
+        if(_experience >= 100)
+        ++_level;
+    }
     
     private int _health = 100;
     public int _level = 1;
