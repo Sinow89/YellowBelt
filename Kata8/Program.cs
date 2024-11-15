@@ -6,7 +6,12 @@ class Program
     {
         
         var player = new Player();
+        player.GainExperience(50);
+        player.GainExperience(60);
         player.LevelUp();
+        
+        
+        
         
     }
 }
@@ -15,6 +20,11 @@ class Program
 class Player
 {
 
+    public void GainExperience(int experience)
+    {
+        Experience += experience;
+        Console.WriteLine($"Gained experience: {experience}");
+    }
 
     public void LevelUp()
     {
@@ -22,12 +32,14 @@ class Player
         {
             Level++;
             Experience -= 100;
+            Console.WriteLine("Congratulations! You level up to " + Level);
         }
+        
     }
     
     private int _health = 100;
     public int _level = 1;
-    public int _experience = 50;
+    public int _experience;
 
     public int Health
     {
