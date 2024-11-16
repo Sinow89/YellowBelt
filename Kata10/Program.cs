@@ -14,11 +14,12 @@ class Program
         enemy.EnemyHealth = 100;
         enemy.EnemyName ="Orc";
         npc.NPCName = "NPC";
+        merchant.MerchantName = "Merchant";
         
         player.Attack(enemy, 20);
         enemy.TakeDamage(20);
-        npc.Speaks();
-        merchant.Trade();
+        npc.Speak("Welcome to out village");
+        merchant.Speak("Ready to trade!");
 
         
     }
@@ -31,6 +32,12 @@ public interface IAttackable
     int Health { get; set; }
     string Name { get; }
     void TakeDamage(int damage);
+}
+
+public interface IDialogue
+{
+    string Name { get; }
+    void Speak(string dialogue);
 }
 
 public class Player
@@ -146,14 +153,15 @@ public class Enemy : IAttackable
     
 }
 
-class NPC
+class NPC : IDialogue
 {
     private string _npcName;
     private string _npcDialogue;
+    public string Name => NPCName;
 
-    public void Speaks()
+    public void Speak(string dialogue)
     {
-        Console.WriteLine($"{_npcName} say: Welcome to our village!");
+        Console.WriteLine($"{Name} says: {dialogue}");
     }
 
     public string NPCName
@@ -182,10 +190,16 @@ class NPC
     
 }
 
-class Merchant
+class Merchant : IDialogue
 {
     private string _merchantName;
     private string _merchantInventory;
+    public string Name => MerchantName;
+    
+    public void Speak(string dialogue)
+    {
+        Console.WriteLine($"{Name} says: {dialogue}");
+    }
 
     
     List<string> MerchantInventoryList = new List<string> { "Sword", "Shield", "Potion" };
