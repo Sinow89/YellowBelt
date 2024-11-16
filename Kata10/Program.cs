@@ -16,9 +16,9 @@ class Program
         npc.NPCName = "NPC";
         
         player.Attack(enemy, 20);
-        // enemy.TakeDamage(20);
-        // npc.Speaks();
-        // merchant.Trade();
+        enemy.TakeDamage(20);
+        npc.Speaks();
+        merchant.Trade();
 
         
     }
@@ -29,6 +29,7 @@ class Program
 public interface IAttackable
 {
     int Health { get; set; }
+    string Name { get; }
     void TakeDamage(int damage);
 }
 
@@ -36,9 +37,7 @@ public class Player
 {
     public void Attack(IAttackable target, int damage)
     {
-        
-        Console.WriteLine($"{PlayerName} attacks {target.GetType().Name} with {damage} damage");
-        target.TakeDamage(damage);
+        Console.WriteLine($"{PlayerName} attacks {target.Name} with {damage} damage");
     }
     
 
@@ -98,6 +97,7 @@ public class Enemy : IAttackable
     private string _enemyName;
     private int _enemyHealth;
     private int _enemyDamage;
+    public string Name => EnemyName;
 
     
     public string EnemyName
