@@ -4,20 +4,30 @@ class Program
 {
     static void Main()
     {
+        var player = new Player();
+        var enemy = new Enemy();
+        enemy.EnemyHealth = 100;
+        player.PlayerHealth = 100;
         
+        player.Attack(enemy, 50);
+        enemy.TakeDamage(player, 50);
+
+        Console.WriteLine(enemy.EnemyHealth);
+        Console.WriteLine(player.PlayerHealth);
+            
     }
     
 }
 
-class Player
+public class Player
 {
 
-    public void Attack()
+    public void Attack(Enemy enemy, int damage)
     {
-        
+        enemy.EnemyHealth -= damage;
     }
     
-    
+
     private string _playerName;
     
     public string Name
@@ -61,11 +71,11 @@ class Player
     }
 }
 
-class Enemy
+public class Enemy
 {
-    public void TakeDamage(int damage)
+    public void TakeDamage(Player player, int damage)
     {
-        
+        player.PlayerHealth -= damage;
     }
     
     private string _enemyName;

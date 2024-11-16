@@ -10,9 +10,6 @@ class Program
         player.GainExperience(60);
         player.LevelUp();
         
-        
-        
-        
     }
 }
 
