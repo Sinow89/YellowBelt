@@ -6,15 +6,16 @@ class Program
     {
         var player = new Player();
         var enemy = new Enemy();
-        enemy.EnemyHealth = 100;
+
+        player.PlayerName= "Arin";
         player.PlayerHealth = 100;
+        enemy.EnemyHealth = 100;
+        enemy.EnemyName ="Orc";
         
         player.Attack(enemy, 50);
         enemy.TakeDamage(player, 50);
 
-        Console.WriteLine(enemy.EnemyHealth);
-        Console.WriteLine(player.PlayerHealth);
-            
+        
     }
     
 }
@@ -25,12 +26,13 @@ public class Player
     public void Attack(Enemy enemy, int damage)
     {
         enemy.EnemyHealth -= damage;
+        Console.WriteLine($"{_playerName} attacks {enemy.EnemyName} with {damage} damage");
     }
     
 
     private string _playerName;
     
-    public string Name
+    public string PlayerName
     {
         get
         {
@@ -76,6 +78,7 @@ public class Enemy
     public void TakeDamage(Player player, int damage)
     {
         player.PlayerHealth -= damage;
+        Console.WriteLine($"{_enemyName} attacks {player.PlayerName} with {damage} damage. Health: {player.PlayerHealth}");
     }
     
     private string _enemyName;
