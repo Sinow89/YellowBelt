@@ -6,14 +6,19 @@ class Program
     {
         var player = new Player();
         var enemy = new Enemy();
+        var npc = new NPC();
+        var merchant = new Merchant();
 
         player.PlayerName= "Arin";
         player.PlayerHealth = 100;
         enemy.EnemyHealth = 100;
         enemy.EnemyName ="Orc";
+        npc.NpcName = "NPC";
         
-        player.Attack(enemy, 50);
-        enemy.TakeDamage(player, 50);
+        player.Attack(enemy, 20);
+        enemy.TakeDamage(player, 20);
+        npc.Speaks();
+        merchant.Trade();
 
         
     }
@@ -78,7 +83,7 @@ public class Enemy
     public void TakeDamage(Player player, int damage)
     {
         player.PlayerHealth -= damage;
-        Console.WriteLine($"{_enemyName} attacks {player.PlayerName} with {damage} damage. Health: {player.PlayerHealth}");
+        Console.WriteLine($"{_enemyName} attacks {player.PlayerName} with {damage} damage. Remaining health: {player.PlayerHealth}");
     }
     
     private string _enemyName;
@@ -133,6 +138,11 @@ class NPC
     private string _npcName;
     private string _npcDialogue;
 
+    public void Speaks()
+    {
+        Console.WriteLine($"{_npcName} say: Welcome to our village!");
+    }
+
     public string NpcName
     {
         get
@@ -163,6 +173,16 @@ class Merchant
 {
     private string _merchantName;
     private string _merchantInventory;
+
+    
+    List<string> MerchantInventoryList = new List<string> { "Sword", "Shield", "Potion" };
+
+    public void Trade() 
+    {
+        {
+            Console.WriteLine($"Merchant's inventory: {MerchantInventoryList[0]}, {MerchantInventoryList[1]}, {MerchantInventoryList[2]}");
+        }
+    }
 
     public string MerchantName
     {
