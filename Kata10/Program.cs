@@ -1,4 +1,4 @@
-﻿namespace Kata9;
+﻿namespace Kata10;
 
 class Program
 {
