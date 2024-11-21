@@ -8,17 +8,12 @@ class Program
         Player player = new Player(name:"Arin", health: 100, level: 10, experience: 50 );
         Enemy enemy = new Enemy(type:"Orc", health: 50);
         
-
         player.Attack(20, enemy.Type);
-        player.GainExperience(50, enemy.Health);
+        player.GainExperience(50);
         enemy.TakeDamage(20);
-        Console.WriteLine($"Player {player.Name} gains {player.Experience} experience points.");
-
-
-
+        
     }
-
-
+    
     public class Player
     {
 
@@ -28,12 +23,12 @@ class Program
             Console.WriteLine($"Player {Name} hit the {type} and deals {damage} damage");
         }
 
-        public void GainExperience(int Experience, int health)
+        public void GainExperience(int experience)
         {
-
+            Experience += experience;
+            Console.WriteLine($"Player {Name} gains {Experience} experience points.");
         }
-
-
+        
         public Player(string name, int health, int level, int experience)
         {
             Name = name;
