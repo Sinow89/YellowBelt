@@ -4,12 +4,11 @@ class Program
 {
     static void Main()
     {
-        var player = new Player();
+        var player = new Player("Arin");
         var enemy = new Enemy();
         var npc = new NPC();
         var merchant = new Merchant();
-
-        player.Name= "Arin";
+        
         player.Health = 100;
         enemy.Health = 100;
         enemy.Name ="Orc";
@@ -43,20 +42,15 @@ public class Player
     {
         Console.WriteLine($"{Name} attacks {target.Name} with {damage} damage");
     }
-
-    private string name;
     
-    public string Name
+    
+    public string Name { get; }
+
+    public Player(string name)
     {
-        get
-        {
-            return name;
-        }
-        set
-        {
-            name = value;
-        }
+        Name = name;
     }
+
     
     private int health;
 
