@@ -4,29 +4,21 @@ class Program
 {
     static void Main()
     {
-        var player = new Player("Arin");
-        var enemy = new Enemy();
-        var npc = new NPC();
-        var merchant = new Merchant();
-        
-        player.Health = 100;
-        enemy.Health = 100;
-        enemy.Name ="Orc";
-        npc.Name = "NPC";
-        merchant.Name = "Merchant";
+        var player = new Player("Arin", 100);
+        var enemy = new Enemy("Orc", 100);
+        var npc = new NPC("NPC");
+        var merchant = new Merchant("Merchant");
         
         player.Attack(enemy, 20);
         enemy.TakeDamage(20);
         npc.Speak("Welcome to out village");
         merchant.Speak("Ready to trade!");
     }
-    
 }
 
 public interface IAttackable
 {
     int Health { get; set; }
-
     void TakeDamage(int damage);
 }
 
@@ -43,17 +35,15 @@ public class Player
         Console.WriteLine($"{Name} attacks {target.Name} with {damage} damage");
     }
     
-    
     public string Name { get; }
 
-    public Player(string name)
+    public Player(string name, int health)
     {
         Name = name;
+        Health = health;
     }
-
     
     private int health;
-
     public int Health
     {
         get
@@ -67,7 +57,6 @@ public class Player
     }
 
     private int level;
-
     public int Level
     {
         get
@@ -83,6 +72,11 @@ public class Player
 
 public class Enemy : IAttackable
 {
+    public Enemy(string name, int health)
+    {
+        Name = name;
+        Health = health;
+    }
     
     public int Health
     {
@@ -93,8 +87,7 @@ public class Enemy : IAttackable
     
     private string name;
     private int health;
-    private int _enemyDamage;
-    
+    private int damage;
     public string Name
     {
         get
@@ -107,18 +100,16 @@ public class Enemy : IAttackable
         }
     }
 
-    public int EnemyDamage
+    public int Damage
     {
-
         get
         {
-            return _enemyDamage;
+            return damage;
         }
         set
         {
-            _enemyDamage = value;
+            damage = value;
         }
-            
     }
     
     public void TakeDamage(int damage)
@@ -126,14 +117,17 @@ public class Enemy : IAttackable
         Health -= damage;
         Console.WriteLine($"{Name} takes {damage} damage. Remaining health: {Health}");
     }
-    
 }
 
 class NPC : IDialogue
 {
     private string name;
-    private string _npcDialogue;
-    
+    private string dialogue;
+
+    public NPC(string name)
+    {
+        Name = name;
+    }
 
     public void Speak(string dialogue)
     {
@@ -152,39 +146,39 @@ class NPC : IDialogue
         }
     }
 
-    public string NpcDialogue
+    public string Dialogue
     {
         get
         {
-            return _npcDialogue;
+            return dialogue;
         }
         set
         {
-            _npcDialogue = value;
+            dialogue = value;
         }
     }
-    
 }
 
 class Merchant : IDialogue
 {
     private string name;
-    private string _merchantInventory;
-    
+    private string inventory;
+
+    public Merchant(string name)
+    {
+        Name = name;
+    }
     
     public void Speak(string dialogue)
     {
         Console.WriteLine($"{Name} says: {dialogue}");
     }
-
     
-    List<string> MerchantInventoryList = new List<string> { "Sword", "Shield", "Potion" };
+    List<string> InventoryList = new(){ "Sword", "Shield", "Potion" };
 
     public void Trade() 
     {
-        {
-            Console.WriteLine($"Merchant's inventory: {MerchantInventoryList[0]}, {MerchantInventoryList[1]}, {MerchantInventoryList[2]}");
-        }
+        Console.WriteLine($"Merchant's inventory: {InventoryList[0]}, {InventoryList[1]}, {InventoryList[2]}");
     }
 
     public string Name
@@ -199,15 +193,15 @@ class Merchant : IDialogue
         }
     }
 
-    public string MerchantInventory
+    public string Inventory
     {
         get
         {
-            return _merchantInventory;
+            return inventory;
         }
         set
         {
-            _merchantInventory = value;
+            inventory = value;
         }
     }
 }
