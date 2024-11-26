@@ -10,27 +10,24 @@ class Program
         var merchant = new Merchant();
 
         player.Name= "Arin";
-        player.PlayerHealth = 100;
+        player.Health = 100;
         enemy.Health = 100;
         enemy.Name ="Orc";
-        npc.NPCName = "NPC";
-        merchant.MerchantName = "Merchant";
+        npc.Name = "NPC";
+        merchant.Name = "Merchant";
         
         player.Attack(enemy, 20);
         enemy.TakeDamage(20);
         npc.Speak("Welcome to out village");
         merchant.Speak("Ready to trade!");
-
-        
     }
     
 }
 
-
 public interface IAttackable
 {
     int Health { get; set; }
-    string Name { get; }
+
     void TakeDamage(int damage);
 }
 
@@ -42,11 +39,10 @@ public interface IDialogue
 
 public class Player
 {
-    public void Attack(IAttackable target, int damage)
+    public void Attack(Enemy target, int damage)
     {
         Console.WriteLine($"{Name} attacks {target.Name} with {damage} damage");
     }
-    
 
     private string name;
     
@@ -62,31 +58,31 @@ public class Player
         }
     }
     
-    private int _playerHealth;
+    private int health;
 
-    public int PlayerHealth
+    public int Health
     {
         get
         {
-            return _playerHealth;
+            return health;
         }
         set
         {
-            _playerHealth = value;
+            health = value;
         }
     }
 
-    private int _playerLevel;
+    private int level;
 
-    public int PlayerLevel
+    public int Level
     {
         get
         {
-            return _playerLevel;
+            return level;
         }
         set
         {
-            _playerLevel = value;
+            level = value;
         }
     }
 }
@@ -141,24 +137,24 @@ public class Enemy : IAttackable
 
 class NPC : IDialogue
 {
-    private string _npcName;
+    private string name;
     private string _npcDialogue;
-    public string Name => NPCName;
+    
 
     public void Speak(string dialogue)
     {
         Console.WriteLine($"{Name} says: {dialogue}");
     }
 
-    public string NPCName
+    public string Name
     {
         get
         {
-            return _npcName;
+            return name;
         }
         set
         {
-            _npcName = value;
+            name = value;
         }
     }
 
@@ -178,9 +174,9 @@ class NPC : IDialogue
 
 class Merchant : IDialogue
 {
-    private string _merchantName;
+    private string name;
     private string _merchantInventory;
-    public string Name => MerchantName;
+    
     
     public void Speak(string dialogue)
     {
@@ -197,15 +193,15 @@ class Merchant : IDialogue
         }
     }
 
-    public string MerchantName
+    public string Name
     {
         get
         {
-            return _merchantName;
+            return name;
         }
         set
         {
-            _merchantName = value;
+            name = value;
         }
     }
 
