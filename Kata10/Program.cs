@@ -9,10 +9,10 @@ class Program
         var npc = new NPC();
         var merchant = new Merchant();
 
-        player.PlayerName= "Arin";
+        player.Name= "Arin";
         player.PlayerHealth = 100;
-        enemy.EnemyHealth = 100;
-        enemy.EnemyName ="Orc";
+        enemy.Health = 100;
+        enemy.Name ="Orc";
         npc.NPCName = "NPC";
         merchant.MerchantName = "Merchant";
         
@@ -44,21 +44,21 @@ public class Player
 {
     public void Attack(IAttackable target, int damage)
     {
-        Console.WriteLine($"{PlayerName} attacks {target.Name} with {damage} damage");
+        Console.WriteLine($"{Name} attacks {target.Name} with {damage} damage");
     }
     
 
-    private string _playerName;
+    private string name;
     
-    public string PlayerName
+    public string Name
     {
         get
         {
-            return _playerName;
+            return name;
         }
         set
         {
-            _playerName = value;
+            name = value;
         }
     }
     
@@ -96,38 +96,24 @@ public class Enemy : IAttackable
     
     public int Health
     {
-        get { return EnemyHealth; }
-        set { EnemyHealth = value; }
+        get { return health; }
+        set { health = value; }
     }
 
     
-    private string _enemyName;
-    private int _enemyHealth;
+    private string name;
+    private int health;
     private int _enemyDamage;
-    public string Name => EnemyName;
-
     
-    public string EnemyName
+    public string Name
     {
         get
         {
-            return _enemyName;
+            return name;
         }
         set
         {
-            _enemyName = value;
-        }
-    }
-
-    public int EnemyHealth
-    {
-        get
-        {
-            return _enemyHealth;
-        }
-        set
-        {
-            _enemyHealth = value;
+            name = value;
         }
     }
 
@@ -148,7 +134,7 @@ public class Enemy : IAttackable
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        Console.WriteLine($"{EnemyName} takes {damage} damage. Remaining health: {Health}");
+        Console.WriteLine($"{Name} takes {damage} damage. Remaining health: {Health}");
     }
     
 }
